@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "haskellate:lib"
+
+    - path: "./test"
+      component: "haskellate:test:haskellate-test"
