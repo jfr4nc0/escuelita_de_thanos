@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "friendsoniables:lib"
+
+    - path: "./test"
+      component: "friendsoniables:test:friendsoniables-test"
