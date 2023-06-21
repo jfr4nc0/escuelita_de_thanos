@@ -2,7 +2,7 @@ module Domain where
 import PdePreludat
 import Library
 
-chocolate = Chocolate{
+chocolatex = Chocolate{
     ingredientes = [],
     nombre = "Chocolate" ,
     gramos = 30,
@@ -10,4 +10,4 @@ chocolate = Chocolate{
     porcentajeAzucar = 10
 }
 
-punto4 = aplicarReceta chocolate [Frutalizado "Naranja" 10,DulceDeLeche,Embriagadora 32]
+punto4 = aplicarReceta chocolatex [Frutalizado "Naranja" 10,DulceDeLeche,Embriagadora 32]
