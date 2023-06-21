@@ -6,3 +6,5 @@
 ### * Friendsoniables
 ### * Escuelita de Thanos 
 ### * Haskellate
+### * Minigolfito
+### * Carreras
