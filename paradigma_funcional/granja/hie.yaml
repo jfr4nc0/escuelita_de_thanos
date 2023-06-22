@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "granja:lib"
+
+    - path: "./test"
+      component: "granja:test:granja-test"
