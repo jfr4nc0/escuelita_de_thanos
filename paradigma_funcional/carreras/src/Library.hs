@@ -13,6 +13,10 @@ type Carrera = [Auto]
 autosDistintos :: Auto -> Auto -> Bool
 autosDistintos auto1 auto2 = color auto1 /= color auto2
 
+mismoAuto :: Auto -> Auto -> Bool
+mismoAuto auto1 auto2 = color auto1 == color auto2
+
+
 estaCerca :: Auto -> Auto -> Bool
 estaCerca auto1 auto2 = autosDistintos auto1 auto2 && ((<10).distanciaEntreAutos auto1) auto2
 
@@ -41,8 +45,21 @@ corra tiempo auto = auto{
 
 alterarVelocidad :: (Number -> Number) -> Auto -> Auto
 alterarVelocidad alteracion auto = auto{
-    velocidad = alteracion $ velocidad auto
+    velocidad = max (alteracion $ velocidad auto) 0
 }
 
 bajarVelocidad :: Number -> Auto -> Auto
 bajarVelocidad valor auto = alterarVelocidad (+ (-valor)) auto 
+
+afectarALosQueCumplen :: (a -> Bool) -> (a -> a) -> [a] -> [a]
+afectarALosQueCumplen criterio efecto lista
+    = (map efecto . filter criterio) lista ++ filter (not.criterio) lista
+
+terremoto :: Auto -> Carrera -> Carrera
+terremoto auto carrera = afectarALosQueCumplen (estaCerca auto) (bajarVelocidad 50) carrera
+
+miguelitos :: Number -> Auto -> Carrera -> Carrera
+miguelitos valor auto carrera = afectarALosQueCumplen (vaGanando auto) (bajarVelocidad valor) carrera
+
+jetpack :: Number -> Auto -> Carrera -> Carrera
+jetpack tiempo auto carrera = afectarALosQueCumplen (mismoAuto auto) ((corra tiempo).(alterarVelocidad (*2))) carrera
