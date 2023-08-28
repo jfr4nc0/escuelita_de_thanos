@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "haskelatex:lib"
+
+    - path: "./test"
+      component: "haskelatex:test:haskelatex-test"

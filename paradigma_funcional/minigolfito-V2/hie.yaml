@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "minigolfito:lib"
+
+    - path: "./test"
+      component: "minigolfito:test:minigolfito-test"

@@ -1,0 +1,7 @@
+cradle:
+  stack:
+    - path: "./src"
+      component: "gnomos:lib"
+
+    - path: "./test"
+      component: "gnomos:test:gnomos-test"

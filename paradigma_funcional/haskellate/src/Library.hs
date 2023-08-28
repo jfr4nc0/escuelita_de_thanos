@@ -38,31 +38,31 @@ totalCalorias chocolate = sumOf calorias $ ingredientes chocolate
 aptoParaNinios :: [Chocolate] -> [Chocolate]
 aptoParaNinios chocolates = take 3 (filter (not . esBombonAsesino) chocolates)
 
-data TipoGustos = Naranja | Frutilla | DulceDeLeche | CeliaCrucera | Licor
-    deriving (Show, Eq, Ord)
+-- data TipoGustos = Naranja | Frutilla | DulceDeLeche | CeliaCrucera | Licor
+--     deriving (Show, Eq, Ord)
 
-data TipoChocolate = Frutalizado TipoGustos Number| DulceDeLeche' | CeliaCrucera' Number| Embriagadora Number
-    deriving (Show, Eq, Ord)
+-- data TipoChocolate = Frutalizado TipoGustos Number| DulceDeLeche' | CeliaCrucera' Number| Embriagadora Number
+--     deriving (Show, Eq, Ord)
 
-aplicarProceso :: Chocolate -> TipoChocolate -> Chocolate
-aplicarProceso chocolate (Frutalizado gusto unidades) = chocolate{
-    ingredientes = Ingrediente{gusto=gusto,calorias=(*2) unidades,unidades=unidades} : ingredientes chocolate
-}
-aplicarProceso chocolate DulceDeLeche' = chocolate{
-    ingredientes = Ingrediente{gusto=DulceDeLeche,calorias=220,unidades=1} : ingredientes chocolate,
-    nombre = (++ " tentacion") . nombre $ chocolate
-}
-aplicarProceso chocolate (CeliaCrucera' porcentaje) = chocolate{
-    ingredientes = Ingrediente{gusto=CeliaCrucera,calorias=0,unidades=1} : ingredientes chocolate,
-    porcentajeAzucar = (+ porcentaje) . porcentajeAzucar $ chocolate
-}
-aplicarProceso chocolate (Embriagadora grados) = chocolate{
-    ingredientes = Ingrediente{gusto=Licor,calorias=min grados 30, unidades=1} : ingredientes chocolate,
-    porcentajeAzucar = (+ 20) . porcentajeAzucar $ chocolate
-}
+-- aplicarProceso :: Chocolate -> TipoChocolate -> Chocolate
+-- aplicarProceso chocolate (Frutalizado gusto unidades) = chocolate{
+--     ingredientes = Ingrediente{gusto=gusto,calorias=(*2) unidades,unidades=unidades} : ingredientes chocolate
+-- }
+-- aplicarProceso chocolate DulceDeLeche' = chocolate{
+--     ingredientes = Ingrediente{gusto=DulceDeLeche,calorias=220,unidades=1} : ingredientes chocolate,
+--     nombre = (++ " tentacion") . nombre $ chocolate
+-- }
+-- aplicarProceso chocolate (CeliaCrucera' porcentaje) = chocolate{
+--     ingredientes = Ingrediente{gusto=CeliaCrucera,calorias=0,unidades=1} : ingredientes chocolate,
+--     porcentajeAzucar = (+ porcentaje) . porcentajeAzucar $ chocolate
+-- }
+-- aplicarProceso chocolate (Embriagadora grados) = chocolate{
+--     ingredientes = Ingrediente{gusto=Licor,calorias=min grados 30, unidades=1} : ingredientes chocolate,
+--     porcentajeAzucar = (+ 20) . porcentajeAzucar $ chocolate
+-- }
 
-aplicarReceta :: Chocolate -> [TipoChocolate] -> Chocolate
-aplicarReceta = foldr $ flip aplicarProceso
+-- aplicarReceta :: Chocolate -> [TipoChocolate] -> Chocolate
+-- aplicarReceta = foldr $ flip aplicarProceso
 
 data Persona = Persona {
     nombrePersona :: String,
